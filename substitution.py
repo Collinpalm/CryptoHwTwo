@@ -15,6 +15,10 @@ def modInverse(a, m):
 
 def decrypt():
     ciphertext = sys.argv[1]
+    characterfreq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    for element in range(0, len(ciphertext)):
+        characterfreq[ord(ciphertext[element])-97] += 0
+        
     
     
 
@@ -24,7 +28,7 @@ def decrypt():
 
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     decrypt()
 
 
