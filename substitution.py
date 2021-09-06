@@ -48,8 +48,8 @@ def decrypt():
     
     didict[ciphertext[:2]] = 1
     for element in range(2, len(ciphertext)):
-        distr = ciphertext[element] + ciphertext[element-1]
-        tristr = ciphertext[element] + ciphertext[element-1] + ciphertext[element-2]
+        distr = ciphertext[element-1] + ciphertext[element]
+        tristr = ciphertext[element-2] + ciphertext[element-2] + ciphertext[element]
 
         characterfreq[ord(ciphertext[element])-97] += 1
                 
