@@ -16,8 +16,42 @@ def modInverse(a, m):
 def decrypt():
     ciphertext = sys.argv[1]
     characterfreq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    for element in range(0, len(ciphertext)):
+    diadict = {}
+    tridict = {}
+    doubledict = {}
+    characterfreq[ord(ciphertext[0])-97] += 1
+    characterfreq[ord(ciphertext[1])-97] += 1
+    
+    if (ciphertext[0] == ciphertext[1]):
+        str = ciphertext[0] + ciphertext[1]
+        if str in doubledict:
+            doubledict.update({str: (doubledict[str] + 1)})
+        else:
+            doubledict.update({str: 1})
+    
+    diadict.update({ciphertext[:2], 1})
+    for element in range(2, len(ciphertext)):
+        diastr = ciphertext[element] + ciphertext[element-1]
+        tristr = ciphertext[element] + ciphertext[element-1] + ciphertext[element-2]
+
         characterfreq[ord(ciphertext[element])-97] += 1
+                
+        if diastr in diadict:
+            diadict.update({diastr: (diadict[diastr] + 1)})
+        else:
+            diadict.update({diastr: 1})
+        
+        if tristr in tridict:
+            tridict.update({tristr: tridict[tristr] + 1})
+        else:
+            tridict.update({tristr: 1})
+
+        if (ciphertext[element] == ciphertext[element-1]):
+            str = ciphertext[element] + ciphertext[element-1]
+            if str in doubledict:
+                doubledict.update({str: (doubledict[str] + 1)})
+            else:
+                doubledict.update({str: 1})
         
     
     
