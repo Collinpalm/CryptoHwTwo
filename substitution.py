@@ -5,6 +5,9 @@ import re
 run this on the command line with the text to be decrypted
 
 """
+plainfreq = ({'a':.082},{'b':.015},{'c':.028},{'d':.043},{'e':.127},{'f':.022},{'g':.02},{'h':.061},{'i':.07},{'j':.002},{'k':.008},{'l':.04},{'m':.024},{'n':.067},{'o':.075},{'p':.019},{'q':.001},{'r':.06},{'s':.063},{'t':.091},{'u':.028},{'v':.01},{'w':.023},{'x':.001},{'y':.02},{'z':.001})
+digrams = ['th', 'he', 'in', 'in', 'er', 'an', 're', 'ed', 'on', 'es', 'st', 'en', 'at', 'to', 'nt', 'ha', 'nd', 'ou', 'ea', 'ng', 'as', 'or', 'ti', 'is', 'et', 'it', 'ar', 'te', 'se', 'hi', 'of']
+trigrams = ['the', 'ing', 'and', 'her', 'ere', 'ent', 'tha', 'nth', 'was', 'eth', 'for', 'dth']
 #code from one of my old projects, IDK its origins
 def modInverse(a, m):
     for x in range(1, m):
@@ -12,6 +15,11 @@ def modInverse(a, m):
             return x
     return -1
 
+def keytry(ciphertext, key):
+    i = 0
+
+def freqdecipher(charfreq, didict, tridict, doubledict):
+    i = 0
 
 def decrypt():
     ciphertext = sys.argv[1]
@@ -52,6 +60,7 @@ def decrypt():
                 doubledict.update({str: (doubledict[str] + 1)})
             else:
                 doubledict.update({str: 1})
+    freqdecipher(characterfreq, didict, tridict, doubledict)
         
     
     
