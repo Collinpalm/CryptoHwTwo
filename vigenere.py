@@ -27,9 +27,15 @@ def findSubStrings(cipher, keylen):
         else:
             subStrings[str] = 1
         str = ""
+    return subStrings
 
 def decrypt():
     ciphertext = sys.argv[1]
+    bins = {}
+    bins[1] = findSubStrings(ciphertext, 1)
+    for x in range(2, 12):
+        bins.update({x, findSubStrings(ciphertext, x)})
+    
     
     
 
