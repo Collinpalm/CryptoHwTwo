@@ -5,7 +5,7 @@ import re
 run this on the command line with the text to be decrypted
 
 """
-triedKeys = []
+
 
 
 #code from one of my old projects, IDK its origins
@@ -20,7 +20,7 @@ def findSubStrings(cipher, keylen):
     str = ""
 
     for x in range(keylen-1, len(cipher)):
-        for element in range(0, keylen-1):
+        for element in range(x-keylen, x):
             str += cipher[element]
         if str in subStrings:
             subStrings.update({str: (subStrings[str]+1)})
@@ -41,8 +41,9 @@ def decrypt():
         bins[x] = sorted(bins[x].items(), key=lambda item:item[1], reverse=True)
         if list(bins[x].values())[0] > 1:
             possible.append(x)
-        
-    
+       
+    for j in range(0, len(possible)):
+        i = 0
     
     
 
