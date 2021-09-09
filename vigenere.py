@@ -31,10 +31,17 @@ def findSubStrings(cipher, keylen):
 
 def decrypt():
     ciphertext = sys.argv[1]
-    bins = {}
+    bins = []
+    possible = []
+    bins[0] = "placeholder"
     bins[1] = findSubStrings(ciphertext, 1)
-    for x in range(2, 12):
-        bins.update({x, findSubStrings(ciphertext, x)})
+    bins[1] = sorted(bins[1].items(), key=lambda item:item[1], reverse=True)
+    for x in range(2, 14):
+        bins.append({x: findSubStrings(ciphertext, x)})
+        bins[x] = sorted(bins[x].items(), key=lambda item:item[1], reverse=True)
+        if list(bins[x].values())[0] > 1:
+            possible.append(x)
+        
     
     
     
