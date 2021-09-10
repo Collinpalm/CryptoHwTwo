@@ -15,8 +15,8 @@ def modInverse(a, m):
             return x
     return -1
 
-def findKeyLen(cipher, bins, length):
-    for el in range(0, len(cipher)):
+def findKeyLen(cipher, bin, length):
+    for el in range(0, length):
         i=0
 
 def findSubStrings(cipher, keylen, length):
