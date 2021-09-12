@@ -81,8 +81,9 @@ def decrypt(ciphertext, key):
 
 def main():
 	ciphertext = sys.argv[1]
-	keylen = getKey(ciphertext)
-	decrypt(ciphertext, keylen)
+	key = getKey(ciphertext)
+	print(key)
+	decrypt(ciphertext, key)
 
 
 
